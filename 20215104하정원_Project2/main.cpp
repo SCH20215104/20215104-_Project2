@@ -40,7 +40,7 @@ int main() {
 	srand(time(NULL));
 	cout << "초기 금액 $50" << endl;
 	cout << "목표 금액 $250" << endl;
-	for (int i=0; cash == 250; i++) {
+	while(true) {
 		bets++;
 		if ((double)rand() / RAND_MAX < 0.5) {
 			cash++;
@@ -49,9 +49,13 @@ int main() {
 		else {
 			cash--;
 			lose++;
-
 		}
-			
+		if (cash == 250)
+			break;
 	}
+	cout << fixed;
+	cout.precision(6);
 	cout << bets << "중의 " << win << "번 승리" << endl;
+	cout << "이긴 확률 = " << (double)win / bets*100 << endl;
+	cout << "평균 배팅 횟수 = " << (double)bets << endl;
 }
